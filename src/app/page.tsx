@@ -2,6 +2,7 @@ import Link from 'next/link';
 import HeroVideo from './HeroVideo';
 import SiteNav from './components/SiteNav';
 import SiteFooter from './components/SiteFooter';
+import HallOfFameCarousel from './components/HallOfFameCarousel';
 
 const stats = [
   { value: '10+', label: 'Years of Excellence' },
@@ -130,6 +131,142 @@ export default function Home() {
                 <p className="text-zinc-500 text-xs uppercase tracking-widest leading-relaxed">{stat.label}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Services Section ── */}
+      <section className="bg-black py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <p className="text-red-600 text-xs font-bold uppercase tracking-[0.35em] mb-3">What We Offer</p>
+          <h2 className="text-4xl md:text-5xl font-bold text-white uppercase tracking-wide mb-10">
+            Our <span className="text-red-600">Services</span>
+          </h2>
+
+          {/* Bento grid — matches design: photo(small) | large concert(center 2×2) | retro stacked | + bottom row */}
+          <div
+            className="gap-3"
+            style={{
+              display: 'grid',
+              gridTemplateColumns: '1fr 1.6fr 1.6fr 1fr',
+              gridTemplateRows: '200px 200px 120px',
+              gridTemplateAreas: `
+                "photo  large  large  retro1"
+                "perf   large  large  retro2"
+                "music  corp   corp   weddings"
+              `,
+            }}
+          >
+            {/* photo — small top-left */}
+            <div className="relative overflow-hidden group cursor-pointer" style={{ gridArea: 'photo' }}>
+              <div className="absolute inset-0 bg-gradient-to-b from-zinc-700 via-zinc-800 to-zinc-950" />
+              <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 50% 25%, rgba(255,180,60,0.13) 0%, transparent 65%)' }} />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.06]">
+                <svg viewBox="0 0 24 24" fill="currentColor" className="w-20 h-20 text-white">
+                  <path d="M12 15.2a3.2 3.2 0 1 0 0-6.4 3.2 3.2 0 0 0 0 6.4Z"/><path d="M9 2 7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9zm3 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"/>
+                </svg>
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 p-4">
+                <h3 className="text-white font-bold text-xs uppercase tracking-wider group-hover:text-red-400 transition-colors">Photography</h3>
+              </div>
+            </div>
+
+            {/* large — big center concert card spanning 2×2 */}
+            <div className="relative overflow-hidden group cursor-pointer" style={{ gridArea: 'large' }}>
+              <div className="absolute inset-0 bg-gradient-to-br from-red-950 via-purple-950 to-zinc-900" />
+              <div className="absolute inset-0 opacity-[0.12]"
+                style={{ backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.9) 1px, transparent 1px)', backgroundSize: '9px 9px' }} />
+              {/* Stage light cone rays */}
+              <div className="absolute top-0 left-[20%] w-0.5 h-full bg-gradient-to-b from-red-500/40 to-transparent origin-top" style={{ transform: 'rotate(8deg)' }} />
+              <div className="absolute top-0 left-[45%] w-0.5 h-full bg-gradient-to-b from-purple-400/30 to-transparent origin-top" style={{ transform: 'rotate(-5deg)' }} />
+              <div className="absolute top-0 right-[20%] w-0.5 h-full bg-gradient-to-b from-red-400/35 to-transparent origin-top" style={{ transform: 'rotate(4deg)' }} />
+              {/* Center glow */}
+              <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 50% 60%, rgba(200,50,200,0.2) 0%, transparent 55%)' }} />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <p className="text-zinc-500 text-[9px] uppercase tracking-widest mb-1">Featured</p>
+                <h3 className="text-white font-bold text-xl uppercase tracking-wide group-hover:text-red-400 transition-colors">Live Concerts &amp; Events</h3>
+              </div>
+            </div>
+
+            {/* retro1 — top right */}
+            <div className="relative overflow-hidden group cursor-pointer" style={{ gridArea: 'retro1' }}>
+              <div className="absolute inset-0 bg-gradient-to-br from-zinc-800 to-zinc-950" />
+              <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 70% 35%, rgba(220,40,40,0.22) 0%, transparent 60%)' }} />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.05]">
+                <svg viewBox="0 0 24 24" fill="currentColor" className="w-14 h-14 text-white">
+                  <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3zm-1 19.93V23h2v-2.07A8 8 0 0 0 20 13h-2a6 6 0 0 1-12 0H4a8 8 0 0 0 7 7.93z"/>
+                </svg>
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 p-4">
+                <h3 className="text-white font-bold text-xs uppercase tracking-wider group-hover:text-red-400 transition-colors">The Retro Band</h3>
+              </div>
+            </div>
+
+            {/* perf — mid left (below photo) */}
+            <div className="relative overflow-hidden group cursor-pointer" style={{ gridArea: 'perf' }}>
+              <div className="absolute inset-0 bg-gradient-to-b from-zinc-900 to-black" />
+              <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 50% 40%, rgba(255,100,0,0.12) 0%, transparent 60%)' }} />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.05]">
+                <svg viewBox="0 0 24 24" fill="currentColor" className="w-14 h-14 text-white">
+                  <path d="m9 3-4 3.56V7H3v10h2v.44L9 21h2V3zm8.5 9c0 1.77-.77 3.29-2 4.33V8.65c1.23 1.04 2 2.56 2 3.35zM14 4.45v2.05c2.89 1.15 5 3.93 5 7.5s-2.11 6.35-5 7.5v2.05C18.34 22.28 21 17.5 21 12s-2.66-10.28-7-10.55z"/>
+                </svg>
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 p-4">
+                <h3 className="text-white font-bold text-xs uppercase tracking-wider group-hover:text-red-400 transition-colors">The Music Band</h3>
+              </div>
+            </div>
+
+            {/* retro2 — mid right (below retro1) */}
+            <div className="relative overflow-hidden group cursor-pointer" style={{ gridArea: 'retro2' }}>
+              <div className="absolute inset-0 bg-gradient-to-br from-zinc-900 to-red-950/30" />
+              <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 30% 65%, rgba(255,120,0,0.15) 0%, transparent 60%)' }} />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.05]">
+                <svg viewBox="0 0 24 24" fill="currentColor" className="w-14 h-14 text-white">
+                  <path d="M12 3v10.55A4 4 0 1 0 14 17V7h4V3h-6z"/>
+                </svg>
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 p-4">
+                <h3 className="text-white font-bold text-xs uppercase tracking-wider group-hover:text-red-400 transition-colors">The Retro Band</h3>
+              </div>
+            </div>
+
+            {/* music — bottom far left */}
+            <div className="relative overflow-hidden group cursor-pointer" style={{ gridArea: 'music' }}>
+              <div className="absolute inset-0 bg-gradient-to-r from-zinc-900 to-zinc-800" />
+              <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 60% 50%, rgba(180,30,30,0.15) 0%, transparent 65%)' }} />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-4">
+                <h3 className="text-white font-bold text-[10px] uppercase tracking-wider group-hover:text-red-400 transition-colors">The Music Band</h3>
+              </div>
+            </div>
+
+            {/* corp — bottom center wide */}
+            <div className="relative overflow-hidden group cursor-pointer" style={{ gridArea: 'corp' }}>
+              <div className="absolute inset-0 bg-gradient-to-r from-zinc-950 via-red-950/20 to-zinc-950" />
+              <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(200,40,40,0.1) 0%, transparent 70%)' }} />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-4 flex items-end justify-between">
+                <h3 className="text-white font-bold text-[10px] uppercase tracking-wider group-hover:text-red-400 transition-colors">Corporate &amp; Brand Events</h3>
+                <span className="w-5 h-5 border border-red-900/50 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shrink-0">
+                  <span className="text-red-600 text-[9px]">→</span>
+                </span>
+              </div>
+            </div>
+
+            {/* weddings — bottom far right */}
+            <div className="relative overflow-hidden group cursor-pointer" style={{ gridArea: 'weddings' }}>
+              <div className="absolute inset-0 bg-gradient-to-l from-zinc-800 to-zinc-900" />
+              <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 40% 50%, rgba(255,200,80,0.08) 0%, transparent 65%)' }} />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-4">
+                <h3 className="text-white font-bold text-[10px] uppercase tracking-wider group-hover:text-red-400 transition-colors">Weddings &amp; Private Events</h3>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -268,6 +405,36 @@ export default function Home() {
               </Link>
             </span>
           </div>
+        </div>
+      </section>
+
+      {/* ── Hall of Fame ── */}
+      <section className="relative bg-zinc-950 py-20 overflow-hidden">
+
+        {/* Cassette image — top right decorative */}
+        <div className="absolute -top-4 right-0 w-72 md:w-96 opacity-80 pointer-events-none select-none z-10">
+          <img
+            src="/cassets.png"
+            alt=""
+            aria-hidden="true"
+            className="w-full object-contain"
+          />
+        </div>
+
+        <div className="relative z-20">
+          {/* Heading — constrained */}
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-14">
+            <p className="text-zinc-500 text-[10px] font-semibold uppercase tracking-[0.35em] mb-2">
+              Festival Events
+            </p>
+            <h2 className="text-4xl md:text-5xl font-bold text-white uppercase tracking-wide">
+              Explore The{' '}
+              <span className="text-red-600">Hall of Fame</span>
+            </h2>
+          </div>
+
+          {/* Full-width carousel — no padding so cards bleed to edges */}
+          <HallOfFameCarousel />
         </div>
       </section>
 
