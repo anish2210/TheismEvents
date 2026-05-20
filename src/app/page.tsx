@@ -1,8 +1,10 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import HeroVideo from './HeroVideo';
 import SiteNav from './components/SiteNav';
 import SiteFooter from './components/SiteFooter';
 import HallOfFameCarousel from './components/HallOfFameCarousel';
+import StarsCollage from './components/StarsCollage';
 
 const stats = [
   { value: '10+', label: 'Years of Excellence' },
@@ -21,6 +23,7 @@ const shows = [
     desc: "Kolkata's iconic retro Bollywood concert, held every year on the birth anniversary of the legendary Kishore Kumar. Now in its seventh season — an unmissable institution graced by India's greatest voices.",
     artists: ['Amit Kumar', 'Kumar Sanu', 'Kavita Krishnamurthy', 'Bappi Lahiri', 'Abhijeet Bhattacharya'],
     tag: 'Flagship',
+    image: '/shows/tomay-poreche-mone.jpg',
   },
   {
     id: 2,
@@ -31,6 +34,7 @@ const shows = [
     desc: "Taking the magic of Tomay Poreche Mone westward — a grand musical tribute featuring philharmonic orchestration and legendary artists embodying Kishore Kumar's immortal legacy.",
     artists: ['Amit Kumar', 'Sudesh Bhosle', 'Alok Katdare', 'Bela Sulakhe'],
     tag: 'Mumbai Edition',
+    image: '/shows/aaye-tum-yaad-mujhe.jpg',
   },
   {
     id: 3,
@@ -41,6 +45,7 @@ const shows = [
     desc: 'A heartfelt concert series celebrating the immortal voices of Hemant Kumar, Lata Mangeshkar, Mukesh, and Manna Dey — performed by India\'s finest contemporary artists.',
     artists: ['Sagnik Sen', 'Shurjo Bhattacharya', 'Gul Saxena', 'Mukhtar Shah'],
     tag: 'New',
+    image: '/shows/tribute-to-legends.jpg',
   },
 ];
 
@@ -157,89 +162,63 @@ export default function Home() {
               `,
             }}
           >
-            {/* photo — small top-left */}
+            {/* photo — small top-left (tribute shows) */}
             <div className="relative overflow-hidden group cursor-pointer" style={{ gridArea: 'photo' }}>
-              <div className="absolute inset-0 bg-gradient-to-b from-zinc-700 via-zinc-800 to-zinc-950" />
-              <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 50% 25%, rgba(255,180,60,0.13) 0%, transparent 65%)' }} />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent" />
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.06]">
-                <svg viewBox="0 0 24 24" fill="currentColor" className="w-20 h-20 text-white">
-                  <path d="M12 15.2a3.2 3.2 0 1 0 0-6.4 3.2 3.2 0 0 0 0 6.4Z"/><path d="M9 2 7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9zm3 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"/>
-                </svg>
-              </div>
+              <Image src="/artists/perf-15.jpg" alt="Tribute Shows" fill className="object-cover object-top transition-transform duration-500 group-hover:scale-105" sizes="25vw" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-4">
-                <h3 className="text-white font-bold text-xs uppercase tracking-wider group-hover:text-red-400 transition-colors">Photography</h3>
+                <h3 className="text-white font-bold text-xs uppercase tracking-wider group-hover:text-red-400 transition-colors">Tribute Shows</h3>
               </div>
             </div>
 
             {/* large — big center concert card spanning 2×2 */}
             <div className="relative overflow-hidden group cursor-pointer" style={{ gridArea: 'large' }}>
-              <div className="absolute inset-0 bg-gradient-to-br from-red-950 via-purple-950 to-zinc-900" />
-              <div className="absolute inset-0 opacity-[0.12]"
-                style={{ backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.9) 1px, transparent 1px)', backgroundSize: '9px 9px' }} />
-              {/* Stage light cone rays */}
-              <div className="absolute top-0 left-[20%] w-0.5 h-full bg-gradient-to-b from-red-500/40 to-transparent origin-top" style={{ transform: 'rotate(8deg)' }} />
-              <div className="absolute top-0 left-[45%] w-0.5 h-full bg-gradient-to-b from-purple-400/30 to-transparent origin-top" style={{ transform: 'rotate(-5deg)' }} />
-              <div className="absolute top-0 right-[20%] w-0.5 h-full bg-gradient-to-b from-red-400/35 to-transparent origin-top" style={{ transform: 'rotate(4deg)' }} />
-              {/* Center glow */}
-              <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 50% 60%, rgba(200,50,200,0.2) 0%, transparent 55%)' }} />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
+              <video
+                src="/services-live.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-6">
                 <p className="text-zinc-500 text-[9px] uppercase tracking-widest mb-1">Featured</p>
                 <h3 className="text-white font-bold text-xl uppercase tracking-wide group-hover:text-red-400 transition-colors">Live Concerts &amp; Events</h3>
               </div>
             </div>
 
-            {/* retro1 — top right */}
+            {/* retro1 — top right (celebrity night) */}
             <div className="relative overflow-hidden group cursor-pointer" style={{ gridArea: 'retro1' }}>
-              <div className="absolute inset-0 bg-gradient-to-br from-zinc-800 to-zinc-950" />
-              <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 70% 35%, rgba(220,40,40,0.22) 0%, transparent 60%)' }} />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.05]">
-                <svg viewBox="0 0 24 24" fill="currentColor" className="w-14 h-14 text-white">
-                  <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3zm-1 19.93V23h2v-2.07A8 8 0 0 0 20 13h-2a6 6 0 0 1-12 0H4a8 8 0 0 0 7 7.93z"/>
-                </svg>
-              </div>
+              <Image src="/artists/perf-10.jpg" alt="Celebrity Night" fill className="object-cover object-center transition-transform duration-500 group-hover:scale-105" sizes="25vw" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-4">
-                <h3 className="text-white font-bold text-xs uppercase tracking-wider group-hover:text-red-400 transition-colors">The Retro Band</h3>
+                <h3 className="text-white font-bold text-xs uppercase tracking-wider group-hover:text-red-400 transition-colors">Celebrity Night</h3>
               </div>
             </div>
 
-            {/* perf — mid left (below photo) */}
+            {/* perf — mid left (birthday event) */}
             <div className="relative overflow-hidden group cursor-pointer" style={{ gridArea: 'perf' }}>
-              <div className="absolute inset-0 bg-gradient-to-b from-zinc-900 to-black" />
-              <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 50% 40%, rgba(255,100,0,0.12) 0%, transparent 60%)' }} />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.05]">
-                <svg viewBox="0 0 24 24" fill="currentColor" className="w-14 h-14 text-white">
-                  <path d="m9 3-4 3.56V7H3v10h2v.44L9 21h2V3zm8.5 9c0 1.77-.77 3.29-2 4.33V8.65c1.23 1.04 2 2.56 2 3.35zM14 4.45v2.05c2.89 1.15 5 3.93 5 7.5s-2.11 6.35-5 7.5v2.05C18.34 22.28 21 17.5 21 12s-2.66-10.28-7-10.55z"/>
-                </svg>
-              </div>
+              <Image src="/artists/perf-12.jpg" alt="Birthday Event" fill className="object-cover object-center transition-transform duration-500 group-hover:scale-105" sizes="25vw" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-4">
-                <h3 className="text-white font-bold text-xs uppercase tracking-wider group-hover:text-red-400 transition-colors">The Music Band</h3>
+                <h3 className="text-white font-bold text-xs uppercase tracking-wider group-hover:text-red-400 transition-colors">Birthday Event</h3>
               </div>
             </div>
 
-            {/* retro2 — mid right (below retro1) */}
+            {/* retro2 — mid right (glam night) */}
             <div className="relative overflow-hidden group cursor-pointer" style={{ gridArea: 'retro2' }}>
-              <div className="absolute inset-0 bg-gradient-to-br from-zinc-900 to-red-950/30" />
-              <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 30% 65%, rgba(255,120,0,0.15) 0%, transparent 60%)' }} />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.05]">
-                <svg viewBox="0 0 24 24" fill="currentColor" className="w-14 h-14 text-white">
-                  <path d="M12 3v10.55A4 4 0 1 0 14 17V7h4V3h-6z"/>
-                </svg>
-              </div>
+              <Image src="/artists/perf-5.jpg" alt="Glam Night" fill className="object-cover object-center transition-transform duration-500 group-hover:scale-105" sizes="25vw" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-4">
-                <h3 className="text-white font-bold text-xs uppercase tracking-wider group-hover:text-red-400 transition-colors">The Retro Band</h3>
+                <h3 className="text-white font-bold text-xs uppercase tracking-wider group-hover:text-red-400 transition-colors">Glam Night</h3>
               </div>
             </div>
 
             {/* music — bottom far left */}
             <div className="relative overflow-hidden group cursor-pointer" style={{ gridArea: 'music' }}>
-              <div className="absolute inset-0 bg-gradient-to-r from-zinc-900 to-zinc-800" />
-              <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 60% 50%, rgba(180,30,30,0.15) 0%, transparent 65%)' }} />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+              <Image src="/artists/perf-4.jpg" alt="Music event" fill className="object-cover object-center transition-transform duration-500 group-hover:scale-105" sizes="25vw" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-4">
                 <h3 className="text-white font-bold text-[10px] uppercase tracking-wider group-hover:text-red-400 transition-colors">The Music Band</h3>
               </div>
@@ -247,22 +226,18 @@ export default function Home() {
 
             {/* corp — bottom center wide */}
             <div className="relative overflow-hidden group cursor-pointer" style={{ gridArea: 'corp' }}>
-              <div className="absolute inset-0 bg-gradient-to-r from-zinc-950 via-red-950/20 to-zinc-950" />
-              <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(200,40,40,0.1) 0%, transparent 70%)' }} />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-4 flex items-end justify-between">
+              <Image src="/artists/perf-13.jpg" alt="Corporate & Brand Events" fill className="object-cover object-[center_35%]
+               transition-transform duration-500 group-hover:scale-105" sizes="50vw" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-4">
                 <h3 className="text-white font-bold text-[10px] uppercase tracking-wider group-hover:text-red-400 transition-colors">Corporate &amp; Brand Events</h3>
-                <span className="w-5 h-5 border border-red-900/50 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shrink-0">
-                  <span className="text-red-600 text-[9px]">→</span>
-                </span>
               </div>
             </div>
 
             {/* weddings — bottom far right */}
             <div className="relative overflow-hidden group cursor-pointer" style={{ gridArea: 'weddings' }}>
-              <div className="absolute inset-0 bg-gradient-to-l from-zinc-800 to-zinc-900" />
-              <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 40% 50%, rgba(255,200,80,0.08) 0%, transparent 65%)' }} />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+              <Image src="/artists/perf-14.jpg" alt="Weddings & Private Events" fill className="object-cover object-center transition-transform duration-500 group-hover:scale-105" sizes="25vw" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-4">
                 <h3 className="text-white font-bold text-[10px] uppercase tracking-wider group-hover:text-red-400 transition-colors">Weddings &amp; Private Events</h3>
               </div>
@@ -301,25 +276,17 @@ export default function Home() {
               </Link>
             </div>
 
-            {/* Right — decorative block */}
+            {/* Right — photo collage */}
             <div className="relative">
               <div className="relative overflow-hidden" style={{ minHeight: '400px' }}>
-                <div className="absolute inset-0 bg-gradient-to-br from-red-950 via-zinc-900 to-black" />
-                <div
-                  className="absolute inset-0 opacity-10"
-                  style={{
-                    backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255,255,255,0.15) 39px, rgba(255,255,255,0.15) 40px), repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255,255,255,0.15) 39px, rgba(255,255,255,0.15) 40px)',
-                  }}
+                <Image
+                  src="/about-collage.jpg"
+                  alt="Theism Events performances"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover object-center"
                 />
-                <div className="absolute inset-0 flex flex-col items-center justify-center p-10 text-center">
-                  <p className="text-zinc-600 text-xs uppercase tracking-[0.3em] mb-6">The Theism Group</p>
-                  <p className="text-7xl font-bold text-white/5 leading-none mb-4">50</p>
-                  <p className="text-white text-sm font-semibold uppercase tracking-widest mb-2">Years of Heritage</p>
-                  <div className="w-8 h-px bg-red-700 my-4" />
-                  <p className="text-zinc-500 text-xs leading-relaxed max-w-xs">
-                    The entertainment arm of a conglomerate built on five decades of trust, quality, and vision.
-                  </p>
-                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
               </div>
               {/* Offset accent border */}
               <div className="absolute -bottom-3 -right-3 inset-0 border border-red-900/40 pointer-events-none" />
@@ -350,13 +317,12 @@ export default function Home() {
                   className="relative overflow-hidden"
                   style={{ minHeight: '260px' }}
                 >
-                  <div className={`absolute inset-0 ${i === 0 ? 'bg-gradient-to-br from-red-950 via-zinc-900 to-black' : i === 1 ? 'bg-gradient-to-br from-zinc-900 via-red-950/40 to-black' : 'bg-gradient-to-br from-zinc-900 to-black'}`} />
-                  <div
-                    className="absolute inset-0 opacity-[0.07]"
-                    style={{
-                      backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.9) 1px, transparent 1px)',
-                      backgroundSize: '20px 20px',
-                    }}
+                  <Image
+                    src={show.image}
+                    alt={show.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
                   {/* Tag */}
@@ -370,10 +336,6 @@ export default function Home() {
                     <span className="border border-zinc-700 text-zinc-400 text-[9px] uppercase tracking-widest px-2 py-1">
                       {show.location}
                     </span>
-                  </div>
-                  {/* Show number watermark */}
-                  <div className="absolute bottom-4 right-5 text-8xl font-bold text-white/[0.04] leading-none select-none">
-                    0{show.id}
                   </div>
                 </div>
 
@@ -438,6 +400,8 @@ export default function Home() {
         </div>
       </section>
 
+      <StarsCollage />
+
       {/* ── Why Choose Theism ── */}
       <section className="bg-black py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -479,6 +443,11 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* ── CD Divider ── */}
+      <div className="bg-black flex justify-center pointer-events-none select-none">
+        <Image src="/cd.png" alt="" aria-hidden={true} width={1920} height={1080} className="w-full object-contain opacity-90" />
+      </div>
 
       {/* ── Testimonial ── */}
       <section className="bg-zinc-950 border-y border-zinc-800 py-24">
