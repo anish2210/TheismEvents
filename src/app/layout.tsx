@@ -21,6 +21,10 @@ export const metadata: Metadata = {
   title: "Theism Events India — India's Premier Live Experience Company",
   description:
     "From the concert halls of Kolkata to the grand stages of Mumbai — Theism Events India crafts live experiences that move audiences, honour legends, and create memories that outlast the evening.",
+  icons: {
+    icon: "/logo.png",
+    apple: "/logo.png",
+  },
 };
 
 export default function RootLayout({
