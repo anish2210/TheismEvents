@@ -1,81 +1,86 @@
-import Link from 'next/link';
-import Image from 'next/image';
-import HeroVideo from './HeroVideo';
-import SiteNav from './components/SiteNav';
-import SiteFooter from './components/SiteFooter';
-import HallOfFameCarousel from './components/HallOfFameCarousel';
-import StarsCollage from './components/StarsCollage';
-
-const stats = [
-  { value: '10+', label: 'Years of Excellence' },
-  { value: '39,000+', label: 'Followers on Facebook' },
-  { value: '7+', label: 'Seasons of Tomay Poreche Mone' },
-  { value: '2', label: 'Iconic IPs Owned by Theism' },
-];
+import Link from "next/link";
+import Image from "next/image";
+import HeroVideo from "./HeroVideo";
+import SiteNav from "./components/SiteNav";
+import SiteFooter from "./components/SiteFooter";
+import HallOfFameCarousel from "./components/HallOfFameCarousel";
+import StarsCollage from "./components/StarsCollage";
+import AnimatedStats from "./components/AnimatedStats";
+import YouTubeSection from "./components/YouTubeSection";
 
 const shows = [
   {
     id: 1,
-    title: 'Tomay Poreche Mone',
+    title: "Tomay Poreche Mone",
     subtitle: "Kolkata's Most Awaited Evening of Retro Bollywood Magic",
-    location: 'Kolkata',
-    date: 'Every 4th August',
+    location: "Kolkata",
+    date: "Every 4th August",
     desc: "Kolkata's iconic retro Bollywood concert, held every year on the birth anniversary of the legendary Kishore Kumar. Now in its seventh season — an unmissable institution graced by India's greatest voices.",
-    artists: ['Amit Kumar', 'Kumar Sanu', 'Kavita Krishnamurthy', 'Bappi Lahiri', 'Abhijeet Bhattacharya'],
-    tag: 'Flagship',
-    image: '/shows/tomay-poreche-mone.jpg',
+    artists: [
+      "Amit Kumar",
+      "Kumar Sanu",
+      "Kavita Krishnamurthy",
+      "Bappi Lahiri",
+      "Abhijeet Bhattacharya",
+    ],
+    tag: "Flagship",
+    image: "/shows/tomay-poreche-mone.jpg",
   },
   {
     id: 2,
-    title: 'Aaye Tum Yaad Mujhe',
+    title: "Aaye Tum Yaad Mujhe",
     subtitle: "Mumbai's Grandest Tribute to the Genius of Kishore Kumar",
-    location: 'Mumbai',
-    date: 'Annual',
+    location: "Mumbai",
+    date: "Annual",
     desc: "Taking the magic of Tomay Poreche Mone westward — a grand musical tribute featuring philharmonic orchestration and legendary artists embodying Kishore Kumar's immortal legacy.",
-    artists: ['Amit Kumar', 'Sudesh Bhosle', 'Alok Katdare', 'Bela Sulakhe'],
-    tag: 'Mumbai Edition',
-    image: '/shows/aaye-tum-yaad-mujhe.jpg',
+    artists: ["Amit Kumar", "Sudesh Bhosle", "Alok Katdare", "Bela Sulakhe"],
+    tag: "Mumbai Edition",
+    image: "/shows/aaye-tum-yaad-mujhe.jpg",
   },
   {
     id: 3,
-    title: 'Tribute to Legends',
-    subtitle: 'A New Series. Timeless Voices.',
-    location: 'Pan India',
-    date: 'New Series',
-    desc: 'A heartfelt concert series celebrating the immortal voices of Hemant Kumar, Lata Mangeshkar, Mukesh, and Manna Dey — performed by India\'s finest contemporary artists.',
-    artists: ['Sagnik Sen', 'Shurjo Bhattacharya', 'Gul Saxena', 'Mukhtar Shah'],
-    tag: 'New',
-    image: '/shows/tribute-to-legends.jpg',
+    title: "Tribute to Legends",
+    subtitle: "A New Series. Timeless Voices.",
+    location: "Pan India",
+    date: "New Series",
+    desc: "A heartfelt concert series celebrating the immortal voices of Hemant Kumar, Lata Mangeshkar, Mukesh, and Manna Dey — performed by India's finest contemporary artists.",
+    artists: [
+      "Sagnik Sen",
+      "Shurjo Bhattacharya",
+      "Gul Saxena",
+      "Mukhtar Shah",
+    ],
+    tag: "New",
+    image: "/shows/tribute-to-legends.jpg",
   },
 ];
 
 const differentiators = [
   {
-    title: 'A Legacy You Can Trust',
+    title: "A Legacy You Can Trust",
     desc: "Over a decade of delivering India's finest live shows, backed by the 50-year heritage of the Theism Group.",
   },
   {
-    title: 'Curatorial Excellence',
-    desc: 'We select only the best: the finest artists, the most resonant repertoire, and the most fitting venues.',
+    title: "Curatorial Excellence",
+    desc: "We select only the best: the finest artists, the most resonant repertoire, and the most fitting venues.",
   },
   {
-    title: 'End-to-End Production Mastery',
-    desc: 'From stage design and AV engineering to artist coordination and post-event debrief — everything under one roof.',
+    title: "End-to-End Production Mastery",
+    desc: "From stage design and AV engineering to artist coordination and post-event debrief — everything under one roof.",
   },
   {
-    title: 'Audience-First Philosophy',
-    desc: 'Every decision we make is filtered through one question: will this create a memory worth keeping?',
+    title: "Audience-First Philosophy",
+    desc: "Every decision we make is filtered through one question: will this create a memory worth keeping?",
   },
   {
-    title: 'National Reach, Local Sensitivity',
-    desc: 'Two offices, Pan India execution, and a deep understanding of regional culture and sensibility.',
+    title: "National Reach, Local Sensitivity",
+    desc: "Two offices, Pan India execution, and a deep understanding of regional culture and sensibility.",
   },
 ];
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-black text-white">
-
       <SiteNav />
 
       {/* ── Hero Section ── */}
@@ -90,27 +95,44 @@ export default function Home() {
                 India's Premier Live Experience Company
               </p>
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-light text-white leading-[1.1] mb-6">
-                Where Every Note{' '}
-                <span className="italic font-semibold font-museo">Resonates.</span>
+                Where Every Note{" "}
+                <span className="italic font-semibold font-museo">
+                  Resonates.
+                </span>
                 <br />
-                Where Every Moment{' '}
-                <span className="italic font-semibold font-museo">Endures.</span>
+                Where Every Moment{" "}
+                <span className="italic font-semibold font-museo">
+                  Endures.
+                </span>
               </h1>
               <p className="text-base text-zinc-400 mb-10 max-w-xl leading-relaxed">
-                From the concert halls of Kolkata to the grand stages of Mumbai — Theism Events India
-                has spent over a decade crafting live experiences that move audiences, honour legends,
-                and create memories that outlast the evening.
+                From the concert halls of Kolkata to the grand stages of Mumbai
+                — Theism Events India has spent over a decade crafting live
+                experiences that move audiences, honour legends, and create
+                memories that outlast the evening.
               </p>
               <div className="flex flex-col sm:flex-row gap-6">
                 <span className="relative inline-block">
-                  <span aria-hidden="true" className="absolute inset-0 bg-white pointer-events-none translate-x-[5px] translate-y-[5px]" />
-                  <Link href="/shows" className="relative block bg-red-700 hover:bg-red-800 text-white px-8 py-3.5 text-sm font-semibold uppercase tracking-widest transition-colors">
+                  <span
+                    aria-hidden="true"
+                    className="absolute inset-0 bg-white pointer-events-none translate-x-[5px] translate-y-[5px]"
+                  />
+                  <Link
+                    href="/shows"
+                    className="relative block bg-red-700 hover:bg-red-800 text-white px-8 py-3.5 text-sm font-semibold uppercase tracking-widest transition-colors"
+                  >
                     Discover Our Shows
                   </Link>
                 </span>
                 <span className="relative inline-block">
-                  <span aria-hidden="true" className="absolute inset-0 bg-white pointer-events-none translate-x-[5px] translate-y-[5px]" />
-                  <Link href="/contact" className="relative block border bg-black hover:border-white hover:bg-black/90 text-white px-8 py-3.5 text-sm font-semibold uppercase tracking-widest transition-colors">
+                  <span
+                    aria-hidden="true"
+                    className="absolute inset-0 bg-white pointer-events-none translate-x-[5px] translate-y-[5px]"
+                  />
+                  <Link
+                    href="/contact"
+                    className="relative block border bg-black hover:border-white hover:bg-black/90 text-white px-8 py-3.5 text-sm font-semibold uppercase tracking-widest transition-colors"
+                  >
                     Plan Your Event With Us
                   </Link>
                 </span>
@@ -122,39 +144,75 @@ export default function Home() {
         {/* Scroll indicator */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-40">
           <div className="w-px h-12 bg-white" />
-          <span className="text-white text-[9px] uppercase tracking-[0.3em]">Scroll</span>
+          <span className="text-white text-[9px] uppercase tracking-[0.3em]">
+            Scroll
+          </span>
         </div>
       </section>
 
       {/* ── Stats Section ── */}
       <section className="bg-zinc-950 border-y border-zinc-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-zinc-800 divide-y md:divide-y-0">
-            {stats.map((stat) => (
-              <div key={stat.value} className="px-8 py-10 text-center">
-                <p className="text-4xl md:text-5xl font-bold text-red-600 mb-2">{stat.value}</p>
-                <p className="text-zinc-500 text-xs uppercase tracking-widest leading-relaxed">{stat.label}</p>
-              </div>
-            ))}
-          </div>
+          <AnimatedStats />
         </div>
       </section>
 
       {/* ── Services Section ── */}
       <section className="bg-black py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-red-600 text-xs font-bold uppercase tracking-[0.35em] mb-3">What We Offer</p>
+          <p className="text-red-600 text-xs font-bold uppercase tracking-[0.35em] mb-3">
+            What We Offer
+          </p>
           <h2 className="text-4xl md:text-5xl font-bold text-white uppercase tracking-wide mb-10">
             Our <span className="text-red-600">Services</span>
           </h2>
 
-          {/* Bento grid — matches design: photo(small) | large concert(center 2×2) | retro stacked | + bottom row */}
+          {/* ── Mobile services grid (< md) ── */}
+          <div className="md:hidden flex flex-col gap-3">
+            {/* Featured card — image on mobile instead of autoplay video */}
+            <div className="relative overflow-hidden cursor-pointer group" style={{ height: "200px" }}>
+              <Image src="/artists/perf-7.jpg" alt="Live Concerts & Events" fill sizes="100vw" className="object-cover object-top transition-transform duration-500 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-4">
+                <p className="text-zinc-500 text-[9px] uppercase tracking-widest mb-1">Featured</p>
+                <h3 className="text-white font-bold text-base uppercase tracking-wide group-hover:text-red-400 transition-colors">Live Concerts &amp; Events</h3>
+              </div>
+            </div>
+            {/* 2-column grid */}
+            <div className="grid grid-cols-2 gap-3">
+              {([
+                { src: "/artists/perf-15.jpg", label: "Tribute Shows",          pos: "object-top" },
+                { src: "/artists/perf-10.jpg", label: "Celebrity Night",         pos: "object-center" },
+                { src: "/artists/perf-12.jpg", label: "Birthday Event",          pos: "object-center" },
+                { src: "/artists/perf-5.jpg",  label: "Glam Night",              pos: "object-center" },
+                { src: "/artists/perf-4.jpg",  label: "The Music Band",          pos: "object-center" },
+                { src: "/artists/perf-14.jpg", label: "Weddings & Private",      pos: "object-center" },
+              ] as const).map(({ src, label, pos }) => (
+                <div key={label} className="relative overflow-hidden cursor-pointer group" style={{ height: "130px" }}>
+                  <Image src={src} alt={label} fill sizes="50vw" className={`object-cover ${pos} transition-transform duration-500 group-hover:scale-105`} />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-3">
+                    <h3 className="text-white font-bold text-[10px] uppercase tracking-wider group-hover:text-red-400 transition-colors">{label}</h3>
+                  </div>
+                </div>
+              ))}
+              {/* Corporate — full width */}
+              <div className="col-span-2 relative overflow-hidden cursor-pointer group" style={{ height: "130px" }}>
+                <Image src="/artists/perf-13.jpg" alt="Corporate & Brand Events" fill sizes="100vw" className="object-cover object-[center_35%] transition-transform duration-500 group-hover:scale-105" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-3">
+                  <h3 className="text-white font-bold text-[10px] uppercase tracking-wider group-hover:text-red-400 transition-colors">Corporate &amp; Brand Events</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* ── Desktop bento grid (md+) ── */}
           <div
-            className="gap-3"
+            className="hidden md:grid gap-3"
             style={{
-              display: 'grid',
-              gridTemplateColumns: '1fr 1.6fr 1.6fr 1fr',
-              gridTemplateRows: '200px 200px 120px',
+              gridTemplateColumns: "1fr 1.6fr 1.6fr 1fr",
+              gridTemplateRows: "200px 200px 120px",
               gridTemplateAreas: `
                 "photo  large  large  retro1"
                 "perf   large  large  retro2"
@@ -163,83 +221,168 @@ export default function Home() {
             }}
           >
             {/* photo — small top-left (tribute shows) */}
-            <div className="relative overflow-hidden group cursor-pointer" style={{ gridArea: 'photo' }}>
-              <Image src="/artists/perf-15.jpg" alt="Tribute Shows" fill className="object-cover object-top transition-transform duration-500 group-hover:scale-105" sizes="25vw" />
+            <div
+              className="relative overflow-hidden group cursor-pointer"
+              style={{ gridArea: "photo" }}
+            >
+              <Image
+                src="/artists/perf-15.jpg"
+                alt="Tribute Shows"
+                fill
+                className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                sizes="25vw"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-4">
-                <h3 className="text-white font-bold text-xs uppercase tracking-wider group-hover:text-red-400 transition-colors">Tribute Shows</h3>
+                <h3 className="text-white font-bold text-xs uppercase tracking-wider group-hover:text-red-400 transition-colors">
+                  Tribute Shows
+                </h3>
               </div>
             </div>
 
             {/* large — big center concert card spanning 2×2 */}
-            <div className="relative overflow-hidden group cursor-pointer" style={{ gridArea: 'large' }}>
+            <div
+              className="relative overflow-hidden group cursor-pointer"
+              style={{ gridArea: "large" }}
+            >
               <video
                 src="/services-live.mp4"
                 autoPlay
                 muted
                 loop
                 playsInline
+                preload="none"
                 className="absolute inset-0 w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-6">
-                <p className="text-zinc-500 text-[9px] uppercase tracking-widest mb-1">Featured</p>
-                <h3 className="text-white font-bold text-xl uppercase tracking-wide group-hover:text-red-400 transition-colors">Live Concerts &amp; Events</h3>
+                <p className="text-zinc-500 text-[9px] uppercase tracking-widest mb-1">
+                  Featured
+                </p>
+                <h3 className="text-white font-bold text-xl uppercase tracking-wide group-hover:text-red-400 transition-colors">
+                  Live Concerts &amp; Events
+                </h3>
               </div>
             </div>
 
             {/* retro1 — top right (celebrity night) */}
-            <div className="relative overflow-hidden group cursor-pointer" style={{ gridArea: 'retro1' }}>
-              <Image src="/artists/perf-10.jpg" alt="Celebrity Night" fill className="object-cover object-center transition-transform duration-500 group-hover:scale-105" sizes="25vw" />
+            <div
+              className="relative overflow-hidden group cursor-pointer"
+              style={{ gridArea: "retro1" }}
+            >
+              <Image
+                src="/artists/perf-10.jpg"
+                alt="Celebrity Night"
+                fill
+                className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                sizes="25vw"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-4">
-                <h3 className="text-white font-bold text-xs uppercase tracking-wider group-hover:text-red-400 transition-colors">Celebrity Night</h3>
+                <h3 className="text-white font-bold text-xs uppercase tracking-wider group-hover:text-red-400 transition-colors">
+                  Celebrity Night
+                </h3>
               </div>
             </div>
 
             {/* perf — mid left (birthday event) */}
-            <div className="relative overflow-hidden group cursor-pointer" style={{ gridArea: 'perf' }}>
-              <Image src="/artists/perf-12.jpg" alt="Birthday Event" fill className="object-cover object-center transition-transform duration-500 group-hover:scale-105" sizes="25vw" />
+            <div
+              className="relative overflow-hidden group cursor-pointer"
+              style={{ gridArea: "perf" }}
+            >
+              <Image
+                src="/artists/perf-12.jpg"
+                alt="Birthday Event"
+                fill
+                className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                sizes="25vw"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-4">
-                <h3 className="text-white font-bold text-xs uppercase tracking-wider group-hover:text-red-400 transition-colors">Birthday Event</h3>
+                <h3 className="text-white font-bold text-xs uppercase tracking-wider group-hover:text-red-400 transition-colors">
+                  Birthday Event
+                </h3>
               </div>
             </div>
 
             {/* retro2 — mid right (glam night) */}
-            <div className="relative overflow-hidden group cursor-pointer" style={{ gridArea: 'retro2' }}>
-              <Image src="/artists/perf-5.jpg" alt="Glam Night" fill className="object-cover object-center transition-transform duration-500 group-hover:scale-105" sizes="25vw" />
+            <div
+              className="relative overflow-hidden group cursor-pointer"
+              style={{ gridArea: "retro2" }}
+            >
+              <Image
+                src="/artists/perf-5.jpg"
+                alt="Glam Night"
+                fill
+                className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                sizes="25vw"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-4">
-                <h3 className="text-white font-bold text-xs uppercase tracking-wider group-hover:text-red-400 transition-colors">Glam Night</h3>
+                <h3 className="text-white font-bold text-xs uppercase tracking-wider group-hover:text-red-400 transition-colors">
+                  Glam Night
+                </h3>
               </div>
             </div>
 
             {/* music — bottom far left */}
-            <div className="relative overflow-hidden group cursor-pointer" style={{ gridArea: 'music' }}>
-              <Image src="/artists/perf-4.jpg" alt="Music event" fill className="object-cover object-center transition-transform duration-500 group-hover:scale-105" sizes="25vw" />
+            <div
+              className="relative overflow-hidden group cursor-pointer"
+              style={{ gridArea: "music" }}
+            >
+              <Image
+                src="/artists/perf-4.jpg"
+                alt="Music event"
+                fill
+                className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                sizes="25vw"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-4">
-                <h3 className="text-white font-bold text-[10px] uppercase tracking-wider group-hover:text-red-400 transition-colors">The Music Band</h3>
+                <h3 className="text-white font-bold text-[10px] uppercase tracking-wider group-hover:text-red-400 transition-colors">
+                  The Music Band
+                </h3>
               </div>
             </div>
 
             {/* corp — bottom center wide */}
-            <div className="relative overflow-hidden group cursor-pointer" style={{ gridArea: 'corp' }}>
-              <Image src="/artists/perf-13.jpg" alt="Corporate & Brand Events" fill className="object-cover object-[center_35%]
-               transition-transform duration-500 group-hover:scale-105" sizes="50vw" />
+            <div
+              className="relative overflow-hidden group cursor-pointer"
+              style={{ gridArea: "corp" }}
+            >
+              <Image
+                src="/artists/perf-13.jpg"
+                alt="Corporate & Brand Events"
+                fill
+                className="object-cover object-[center_35%]
+               transition-transform duration-500 group-hover:scale-105"
+                sizes="50vw"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-4">
-                <h3 className="text-white font-bold text-[10px] uppercase tracking-wider group-hover:text-red-400 transition-colors">Corporate &amp; Brand Events</h3>
+                <h3 className="text-white font-bold text-[10px] uppercase tracking-wider group-hover:text-red-400 transition-colors">
+                  Corporate &amp; Brand Events
+                </h3>
               </div>
             </div>
 
             {/* weddings — bottom far right */}
-            <div className="relative overflow-hidden group cursor-pointer" style={{ gridArea: 'weddings' }}>
-              <Image src="/artists/perf-14.jpg" alt="Weddings & Private Events" fill className="object-cover object-center transition-transform duration-500 group-hover:scale-105" sizes="25vw" />
+            <div
+              className="relative overflow-hidden group cursor-pointer"
+              style={{ gridArea: "weddings" }}
+            >
+              <Image
+                src="/artists/perf-14.jpg"
+                alt="Weddings & Private Events"
+                fill
+                className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                sizes="25vw"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-4">
-                <h3 className="text-white font-bold text-[10px] uppercase tracking-wider group-hover:text-red-400 transition-colors">Weddings &amp; Private Events</h3>
+                <h3 className="text-white font-bold text-[10px] uppercase tracking-wider group-hover:text-red-400 transition-colors">
+                  Weddings &amp; Private Events
+                </h3>
               </div>
             </div>
           </div>
@@ -252,20 +395,28 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-16 items-center">
             {/* Left — text */}
             <div>
-              <p className="text-red-600 text-xs font-bold uppercase tracking-[0.35em] mb-4">Who We Are</p>
+              <p className="text-red-600 text-xs font-bold uppercase tracking-[0.35em] mb-4">
+                Who We Are
+              </p>
               <h2 className="text-4xl md:text-5xl font-bold text-white uppercase leading-tight mb-6">
-                Born in Kolkata.<br />
-                <span className="text-zinc-500 font-light normal-case text-3xl italic">Grown Across India.</span>
+                Born in Kolkata.
+                <br />
+                <span className="text-zinc-500 font-light normal-case text-3xl italic">
+                  Grown Across India.
+                </span>
               </h2>
               <div className="w-12 h-px bg-red-700 mb-8" />
               <p className="text-zinc-400 text-sm leading-loose mb-6">
-                Theism Events India was born in 2013 with a singular belief — that a truly extraordinary
-                event is not merely organised, it is <em className="text-white">felt</em>. We are the entertainment arm of the Theism Group,
-                a Kolkata-based conglomerate with over five decades of excellence across industries.
+                Theism Events India was born in 2013 with a singular belief —
+                that a truly extraordinary event is not merely organised, it is{" "}
+                <em className="text-white">felt</em>. We are the entertainment
+                arm of the Theism Group, a Kolkata-based conglomerate with over
+                five decades of excellence across industries.
               </p>
               <p className="text-zinc-400 text-sm leading-loose mb-8">
-                With offices in Kolkata and Mumbai and a footprint that spans the breadth of India,
-                Theism Events has become one of the country's most trusted names in live concert production,
+                With offices in Kolkata and Mumbai and a footprint that spans
+                the breadth of India, Theism Events has become one of the
+                country's most trusted names in live concert production,
                 cultural event management, and brand experience creation.
               </p>
               <Link
@@ -278,7 +429,10 @@ export default function Home() {
 
             {/* Right — photo collage */}
             <div className="relative">
-              <div className="relative overflow-hidden" style={{ minHeight: '400px' }}>
+              <div
+                className="relative overflow-hidden"
+                style={{ minHeight: "400px" }}
+              >
                 <Image
                   src="/about-collage.jpg"
                   alt="Theism Events performances"
@@ -299,23 +453,31 @@ export default function Home() {
       <section className="bg-zinc-950 py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-14">
-            <p className="text-red-600 text-xs font-bold uppercase tracking-[0.35em] mb-3">Our Productions</p>
+            <p className="text-red-600 text-xs font-bold uppercase tracking-[0.35em] mb-3">
+              Our Productions
+            </p>
             <h2 className="text-4xl md:text-5xl font-bold text-white uppercase tracking-wide mb-4">
-              Our Most Celebrated<br />Productions
+              Our Most Celebrated
+              <br />
+              Productions
             </h2>
             <p className="text-zinc-500 text-sm max-w-xl leading-relaxed">
-              For over a decade, Theism Events has been the custodian of two of India's most beloved
-              live experiences — annual pilgrimages for those who love the golden era of Indian music.
+              For over a decade, Theism Events has been the custodian of two of
+              India's most beloved live experiences — annual pilgrimages for
+              those who love the golden era of Indian music.
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
             {shows.map((show, i) => (
-              <div key={show.id} className="relative group flex flex-col overflow-hidden">
+              <div
+                key={show.id}
+                className="relative group flex flex-col overflow-hidden"
+              >
                 {/* Card visual */}
                 <div
                   className="relative overflow-hidden"
-                  style={{ minHeight: '260px' }}
+                  style={{ minHeight: "260px" }}
                 >
                   <Image
                     src={show.image}
@@ -341,15 +503,25 @@ export default function Home() {
 
                 {/* Card content */}
                 <div className="bg-zinc-900 border border-zinc-800 group-hover:border-red-900 transition-colors p-6 flex-1 flex flex-col">
-                  <p className="text-zinc-600 text-[10px] uppercase tracking-widest mb-1">{show.date}</p>
+                  <p className="text-zinc-600 text-[10px] uppercase tracking-widest mb-1">
+                    {show.date}
+                  </p>
                   <h3 className="text-white font-bold text-xl mb-1 group-hover:text-red-400 transition-colors">
                     {show.title}
                   </h3>
-                  <p className="text-zinc-500 text-xs italic mb-4">{show.subtitle}</p>
-                  <p className="text-zinc-400 text-xs leading-relaxed mb-5 flex-1">{show.desc}</p>
+                  <p className="text-zinc-500 text-xs italic mb-4">
+                    {show.subtitle}
+                  </p>
+                  <p className="text-zinc-400 text-xs leading-relaxed mb-5 flex-1">
+                    {show.desc}
+                  </p>
                   <div className="border-t border-zinc-800 pt-4">
-                    <p className="text-zinc-600 text-[9px] uppercase tracking-widest mb-2">Featuring</p>
-                    <p className="text-zinc-400 text-xs">{show.artists.join(' · ')}</p>
+                    <p className="text-zinc-600 text-[9px] uppercase tracking-widest mb-2">
+                      Featuring
+                    </p>
+                    <p className="text-zinc-400 text-xs">
+                      {show.artists.join(" · ")}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -358,7 +530,10 @@ export default function Home() {
 
           <div className="mt-10 flex justify-center">
             <span className="relative inline-block">
-              <span aria-hidden="true" className="absolute inset-0 bg-white pointer-events-none translate-x-[5px] translate-y-[5px]" />
+              <span
+                aria-hidden="true"
+                className="absolute inset-0 bg-white pointer-events-none translate-x-[5px] translate-y-[5px]"
+              />
               <Link
                 href="/shows"
                 className="relative block border border-red-700 text-white bg-red-600 hover:bg-red-700 px-10 py-3.5 text-xs font-bold uppercase tracking-widest transition-colors"
@@ -372,13 +547,13 @@ export default function Home() {
 
       {/* ── Hall of Fame ── */}
       <section className="relative bg-zinc-950 py-20 overflow-hidden">
-
         {/* Cassette image — top right decorative */}
         <div className="absolute -top-4 right-0 w-72 md:w-96 opacity-80 pointer-events-none select-none z-10">
           <img
             src="/cassets.png"
             alt=""
             aria-hidden="true"
+            loading="lazy"
             className="w-full object-contain"
           />
         </div>
@@ -390,8 +565,7 @@ export default function Home() {
               Festival Events
             </p>
             <h2 className="text-4xl md:text-5xl font-bold text-white uppercase tracking-wide">
-              Explore The{' '}
-              <span className="text-red-600">Hall of Fame</span>
+              Explore The <span className="text-red-600">Hall of Fame</span>
             </h2>
           </div>
 
@@ -408,16 +582,23 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-16">
             {/* Left — heading */}
             <div className="flex flex-col justify-start">
-              <p className="text-red-600 text-xs font-bold uppercase tracking-[0.35em] mb-4">Why Us</p>
+              <p className="text-red-600 text-xs font-bold uppercase tracking-[0.35em] mb-4">
+                Why Us
+              </p>
               <h2 className="text-4xl md:text-5xl font-bold text-white uppercase leading-tight mb-6">
-                Crafted with Care.<br />
-                Delivered with<br />
-                <span className="italic font-museo font-semibold text-red-600">Precision.</span>
+                Crafted with Care.
+                <br />
+                Delivered with
+                <br />
+                <span className="italic font-museo font-semibold text-red-600">
+                  Precision.
+                </span>
               </h2>
               <div className="w-12 h-px bg-red-700 mb-8" />
               <p className="text-zinc-500 text-sm leading-relaxed max-w-sm">
-                We do not simply manage events. We build the architecture of unforgettable evenings —
-                from the first note of sound check to the final round of applause.
+                We do not simply manage events. We build the architecture of
+                unforgettable evenings — from the first note of sound check to
+                the final round of applause.
               </p>
             </div>
 
@@ -435,7 +616,9 @@ export default function Home() {
                     <h4 className="text-white text-sm font-bold uppercase tracking-wider mb-1.5 group-hover:text-red-400 transition-colors">
                       {item.title}
                     </h4>
-                    <p className="text-zinc-500 text-xs leading-relaxed">{item.desc}</p>
+                    <p className="text-zinc-500 text-xs leading-relaxed">
+                      {item.desc}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -444,18 +627,19 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── CD Divider ── */}
-      <div className="bg-black flex justify-center pointer-events-none select-none">
-        <Image src="/cd.png" alt="" aria-hidden={true} width={1920} height={1080} className="w-full object-contain opacity-90" />
-      </div>
+      {/* ── YouTube Videos ── */}
+      <YouTubeSection />
 
       {/* ── Testimonial ── */}
       <section className="bg-zinc-950 border-y border-zinc-800 py-24">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="text-red-700 text-6xl leading-none mb-8 font-serif">&ldquo;</div>
+          <div className="text-red-700 text-6xl leading-none mb-8 font-serif">
+            &ldquo;
+          </div>
           <blockquote className="text-white text-xl md:text-2xl font-light leading-relaxed mb-10 italic">
-            At this moment, Theism Events is the best in Kolkata to stage big musical nights.
-            Professionalism, passion, and an eye for detail — all in one place.
+            At this moment, Theism Events is the best in Kolkata to stage big
+            musical nights. Professionalism, passion, and an eye for detail —
+            all in one place.
           </blockquote>
           <div className="w-8 h-px bg-red-700 mx-auto mb-6" />
           <cite className="not-italic text-zinc-500 text-xs uppercase tracking-[0.3em]">
@@ -476,13 +660,18 @@ export default function Home() {
       <section className="bg-red-700 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
-            <p className="text-red-200 text-xs uppercase tracking-widest mb-1">Ready to Begin?</p>
+            <p className="text-red-200 text-xs uppercase tracking-widest mb-1">
+              Ready to Begin?
+            </p>
             <h3 className="text-white text-3xl font-bold uppercase tracking-wide">
               Let's Build Something Unforgettable.
             </h3>
           </div>
           <span className="relative inline-block shrink-0">
-            <span aria-hidden="true" className="absolute inset-0 bg-white pointer-events-none translate-x-[5px] translate-y-[5px]" />
+            <span
+              aria-hidden="true"
+              className="absolute inset-0 bg-white pointer-events-none translate-x-[5px] translate-y-[5px]"
+            />
             <Link
               href="/contact"
               className="relative block bg-black hover:bg-zinc-900 text-white px-10 py-4 text-xs font-bold uppercase tracking-widest transition-colors"

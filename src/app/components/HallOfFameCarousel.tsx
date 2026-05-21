@@ -85,6 +85,9 @@ export default function HallOfFameCarousel() {
                 <img
                   src={event.image}
                   alt={event.title}
+                  loading="lazy"
+                  width={220}
+                  height={300}
                   className="absolute inset-0 w-full h-full object-cover"
                 />
                 {/* Hover overlay */}
