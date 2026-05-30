@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, type ReactNode } from 'react'
 import { MessageCircle, X, Send, Bot, Sparkles } from 'lucide-react'
 
 type Message = {
@@ -8,21 +8,60 @@ type Message = {
   content: string
 }
 
+function renderInline(text: string): ReactNode[] {
+  return text.split(/(\*\*[^*]+\*\*|\*[^*]+\*)/g).map((part, i) => {
+    if (part.startsWith('**') && part.endsWith('**'))
+      return <strong key={i}>{part.slice(2, -2)}</strong>
+    if (part.startsWith('*') && part.endsWith('*'))
+      return <em key={i}>{part.slice(1, -1)}</em>
+    return part
+  })
+}
+
+function renderMarkdown(text: string): ReactNode {
+  const lines = text.split('\n')
+  const nodes: ReactNode[] = []
+  let i = 0
+  while (i < lines.length) {
+    const line = lines[i]
+    if (/^[*-] /.test(line)) {
+      const items: string[] = []
+      while (i < lines.length && /^[*-] /.test(lines[i])) {
+        items.push(lines[i].replace(/^[*-] /, ''))
+        i++
+      }
+      nodes.push(
+        <ul key={`ul-${i}`} className="list-disc list-inside space-y-0.5 my-1 pl-1">
+          {items.map((item, j) => <li key={j}>{renderInline(item)}</li>)}
+        </ul>
+      )
+      continue
+    }
+    if (line.trim() === '') {
+      nodes.push(<span key={`br-${i}`} className="block h-1" />)
+    } else {
+      nodes.push(<span key={`ln-${i}`} className="block">{renderInline(line)}</span>)
+    }
+    i++
+  }
+  return <>{nodes}</>
+}
+
 export default function ChatWidget() {
   const [open, setOpen] = useState(false)
-  const [messages, setMessages] = useState<Message[]>(() => {
-    if (typeof window === 'undefined') return []
-    try {
-      const saved = sessionStorage.getItem('chat_history')
-      return saved ? JSON.parse(saved) : []
-    } catch {
-      return []
-    }
-  })
+  const [messages, setMessages] = useState<Message[]>([])
   const [input, setInput] = useState('')
   const [loading, setLoading] = useState(false)
   const bottomRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
+
+  // Load persisted history after mount to avoid SSR/hydration mismatch
+  useEffect(() => {
+    try {
+      const saved = sessionStorage.getItem('chat_history')
+      if (saved) setMessages(JSON.parse(saved))
+    } catch {}
+  }, [])
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' })
@@ -159,19 +198,19 @@ export default function ChatWidget() {
                 </div>
               )}
               <div
-                className={`max-w-[78%] px-3.5 py-2.5 text-sm whitespace-pre-wrap leading-relaxed ${
+                className={`max-w-[78%] px-3.5 py-2.5 text-sm leading-relaxed ${
                   msg.role === 'user'
                     ? 'bg-gradient-to-br from-red-600 to-red-700 text-white rounded-2xl rounded-tr-sm shadow-md shadow-red-900/30'
                     : 'bg-zinc-800/80 text-zinc-100 rounded-2xl rounded-tl-sm border border-zinc-700/50'
                 }`}
               >
-                {msg.content || (loading && i === messages.length - 1 ? (
+                {loading && i === messages.length - 1 && !msg.content ? (
                   <span className="inline-flex gap-1 items-center h-4">
                     <span className="w-1.5 h-1.5 bg-zinc-500 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
                     <span className="w-1.5 h-1.5 bg-zinc-500 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
                     <span className="w-1.5 h-1.5 bg-zinc-500 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
                   </span>
-                ) : null)}
+                ) : msg.role === 'assistant' ? renderMarkdown(msg.content) : msg.content}
               </div>
             </div>
           ))}

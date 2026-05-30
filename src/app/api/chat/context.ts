@@ -2,6 +2,89 @@ let cachedContext: string | null = null
 let cacheExpiry = 0
 const CACHE_TTL_MS = 60 * 60 * 1000 // 1 hour
 
+function buildWebsiteContext(): string {
+  return `### About Theism Events India
+India's premier live experience company. Headquartered with offices in Kolkata and Mumbai. Over a decade of staging India's finest live shows, backed by the 50-year heritage of the Theism Group. Operating since 2013 with pan-India reach. Contact / enquiries: https://theismevents.in/contact
+
+### Key Stats
+- 10+ Years of Excellence
+- 119K+ Followers on Facebook
+- 7+ Seasons of Tomay Poreche Mone
+- 2 Iconic IPs Owned by Theism
+
+### Services Offered
+1. Live Concerts & Events (flagship offering)
+2. Tribute Shows
+3. Celebrity Night
+4. Birthday Events
+5. Glam Night
+6. The Music Band
+7. Weddings & Private Events
+8. Corporate & Brand Events
+
+### Why Choose Theism Events
+1. A Legacy You Can Trust — Over a decade of delivering India's finest live shows, backed by the 50-year heritage of the Theism Group.
+2. Curatorial Excellence — Only the best artists, the most resonant repertoire, and the most fitting venues.
+3. End-to-End Production Mastery — Stage design, AV engineering, artist coordination, and post-event debrief under one roof.
+4. Audience-First Philosophy — Every decision filtered through: will this create a memory worth keeping?
+5. National Reach, Local Sensitivity — Two offices, pan-India execution, deep understanding of regional culture and sensibility.
+
+### Signature Shows (Flagship IPs)
+1. Tomay Poreche Mone
+   - Type: Flagship | Tag: Flagship
+   - Location: Kolkata
+   - Date: Every 4th August (Kishore Kumar's birth anniversary)
+   - Season: Now in its 7th season
+   - Description: Kolkata's iconic retro Bollywood concert, an unmissable institution graced by India's greatest voices.
+   - Artists: Amit Kumar, Kumar Sanu, Kavita Krishnamurthy, Bappi Lahiri, Abhijeet Bhattacharya
+
+2. Aaye Tum Yaad Mujhe
+   - Type: Mumbai Edition
+   - Location: Mumbai
+   - Date: Annual
+   - Description: Mumbai's grandest tribute to the genius of Kishore Kumar. Grand musical tribute with philharmonic orchestration.
+   - Artists: Amit Kumar, Sudesh Bhosle, Alok Katdare, Bela Sulakhe
+
+3. Tribute to Legends
+   - Type: New Series
+   - Location: Pan India
+   - Date: New Series (ongoing)
+   - Description: Concert series celebrating immortal voices of Hemant Kumar, Lata Mangeshkar, Mukesh, and Manna Dey.
+   - Artists: Sagnik Sen, Shurjo Bhattacharya, Gul Saxena, Mukhtar Shah
+
+### Upcoming Events (2026)
+1. Legacy — Unforgettable Rafi
+   - Date: 1 Aug 2026 | Location: Mumbai | Tag: Mumbai Edition
+   - Subtitle: A Grand Tribute to the Voice of a Million Hearts
+   - Artists: Sudesh Bhosle, Roop Kumar Rathod, Anup Jalota
+
+2. Tomay Poreche Mone (7th Season)
+   - Date: 4 Aug 2026 | Location: Kolkata | Tag: Flagship
+   - Subtitle: Seventh Season of Kolkata's Retro Bollywood Night
+   - Artists: Amit Kumar, Kumar Sanu, Kavita Krishnamurthy
+
+3. Tribute to Legends
+   - Date: 2 Aug 2026 | Location: Mumbai | Tag: New Series
+   - Subtitle: Celebrating Hemant Kumar, Lata Mangeshkar & Mukesh
+   - Artists: Sagnik Sen, Shurjo Bhattacharya, Gul Saxena
+
+4. Shotoborshe Uttom
+   - Date: 6 Sep 2026 | Location: Kolkata | Tag: Special
+   - Subtitle: Centenary Celebration of Uttam Kumar
+   - Artists: Indrani Sen, Usha Uthup, Lopamudra Mitra
+
+### Past Events (Archive)
+1. Main Hoon Jhumroo — Tomay Poreche Mone Live Performance | 18 Dec 2024 | Kolkata | https://www.youtube.com/watch?v=3b-nm-hj92Y
+2. Humein Tumse Pyar Kitna — Kishore Kumar Tribute Live at Kolkata | 4 Aug 2024 | Kolkata | https://www.youtube.com/watch?v=6i_Q2Z09Mcw
+3. Om Shanti Om — Tomay Poreche Mone Live Performance | 24 Aug 2024 | Kolkata | https://www.youtube.com/watch?v=AHjD0AFYjhs
+4. Aaye Tum Yaad Mujhe — Mumbai's Grandest Kishore Kumar Tribute | Annual | Mumbai
+5. Manzilen Apni Jagah Hain — Tomay Poreche Mone Live Performance | 10 Jul 2024 | Kolkata | https://www.youtube.com/watch?v=DY_n3K2tm-M
+
+### Social Media
+- Facebook: https://www.facebook.com/TheismEvents/ (119K+ followers)
+- YouTube: https://www.youtube.com/@theismevents`
+}
+
 const BOT_UA = 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)'
 
 // YouTube public RSS — no API key required
@@ -115,7 +198,9 @@ export async function getEventContext(): Promise<string> {
   ])
 
   cachedContext = [
-    '--- Live context from Theism Events social pages ---',
+    '--- Theism Events India — Website & Social Context ---',
+    buildWebsiteContext(),
+    '',
     youtube.status === 'fulfilled' ? youtube.value : '',
     '',
     facebook.status === 'fulfilled' ? facebook.value : '',
