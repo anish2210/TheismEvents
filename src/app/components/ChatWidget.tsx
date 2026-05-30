@@ -74,10 +74,11 @@ export default function ChatWidget() {
     if (open) inputRef.current?.focus()
   }, [open])
 
-  async function sendMessage() {
-    if (!input.trim() || loading) return
+  async function sendMessage(text?: string) {
+    const content = (text ?? input).trim()
+    if (!content || loading) return
 
-    const userMessage: Message = { role: 'user', content: input.trim() }
+    const userMessage: Message = { role: 'user', content }
     const newMessages = [...messages, userMessage]
     setMessages([...newMessages, { role: 'assistant', content: '' }])
     setInput('')
@@ -180,7 +181,7 @@ export default function ChatWidget() {
                 {['Upcoming events?', 'Tell me about Tomay Poreche Mone', 'How can I book?'].map(q => (
                   <button
                     key={q}
-                    onClick={() => { setInput(q); inputRef.current?.focus() }}
+                    onClick={() => sendMessage(q)}
                     className="text-xs text-zinc-400 border border-zinc-800 hover:border-red-700/60 hover:text-red-400 hover:bg-red-950/30 px-3 py-2 rounded-xl text-left transition-all duration-150"
                   >
                     {q}
