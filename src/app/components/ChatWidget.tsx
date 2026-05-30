@@ -231,7 +231,7 @@ export default function ChatWidget() {
             disabled={loading}
           />
           <button
-            onClick={sendMessage}
+            onClick={() => sendMessage()}
             disabled={loading || !input.trim()}
             className="w-10 h-10 rounded-xl bg-gradient-to-br from-red-600 to-red-700 text-white flex items-center justify-center hover:from-red-500 hover:to-red-600 disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-150 shadow-md shadow-red-900/30 shrink-0"
             aria-label="Send"
