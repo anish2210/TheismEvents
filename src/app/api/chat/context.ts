@@ -4,7 +4,23 @@ const CACHE_TTL_MS = 60 * 60 * 1000 // 1 hour
 
 function buildWebsiteContext(): string {
   return `### About Theism Events India
-India's premier live experience company. Headquartered with offices in Kolkata and Mumbai. Over a decade of staging India's finest live shows, backed by the 50-year heritage of the Theism Group. Operating since 2013 with pan-India reach. Contact / enquiries: https://theismevents.in/contact
+India's premier live experience company. Headquartered with offices in Kolkata and Mumbai. Over a decade of staging India's finest live shows, backed by the 50-year heritage of the Theism Group. Year of Establishment: 2015. Pan-India reach.
+
+### Contact & Office Details
+- **Phone:** 062901 81800
+- **Kolkata Office Address:** 14F/N, Dum Dum Rd, RBI Staff Quarters, Bir Para, Paikpara, Kolkata, West Bengal 700030
+- **Working Hours:** Monday – Saturday, 12:00 PM – 9:00 PM
+- **Website:** https://theismevents.in
+- **Enquiries / Contact Form:** https://theismevents.in/contact
+
+### Ratings & Reviews
+- JustDial: 4.8/5 (66 votes)
+- Sulekha: 5/5 (3 reviews)
+
+### Notable Clients & Artists
+- **Corporate Clients:** Hindustan Unilever Limited, Nestlé, Mahindra Group
+- **Artists Worked With:** Arijit Singh, A.R. Rahman (among many others)
+- **Venues:** St. Xavier's College Kolkata, and marquee venues pan-India
 
 ### Key Stats
 - 10+ Years of Excellence
@@ -19,8 +35,15 @@ India's premier live experience company. Headquartered with offices in Kolkata a
 4. Birthday Events
 5. Glam Night
 6. The Music Band
-7. Weddings & Private Events
-8. Corporate & Brand Events
+7. Weddings & Private Events (Destination Weddings, Sangeet, Mehendi, Engagement, Naming Ceremony, Baby Shower, Bachelorette)
+8. Corporate & Brand Events (Conferences, Seminars, Product Launches, Roadshows, Exhibition & Trade Fairs)
+9. Celebrity Management
+10. Entertainment & Cultural Events
+11. Sports Event Management
+12. Stage Shows & Theme Events
+13. Office Parties & Anniversary Celebrations
+14. Magic Shows
+15. Charity & Donation Camp Organization
 
 ### Why Choose Theism Events
 1. A Legacy You Can Trust — Over a decade of delivering India's finest live shows, backed by the 50-year heritage of the Theism Group.
