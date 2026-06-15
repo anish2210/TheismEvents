@@ -22,7 +22,7 @@ export default function HeroVideo() {
       preload="metadata"
       className="absolute inset-0 w-full h-full object-cover"
     >
-      <source src="/hero_video.mp4" type="video/mp4" />
+      <source src="/services-live.mp4" type="video/mp4" />
     </video>
   );
 }
