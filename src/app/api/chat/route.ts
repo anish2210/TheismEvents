@@ -15,13 +15,30 @@ const MODELS = [
   'mistralai/mistral-7b-instruct:free',
 ]
 
+const CONNECT_ERROR = "Sorry, I'm having trouble connecting. Please try again later."
+const KNOWN_FAILURE_MESSAGES = new Set([
+  CONNECT_ERROR,
+  'Sorry, something went wrong. Please try again.',
+])
+
+function getOpenRouterKey() {
+  const candidates = [
+    ['OPENROUTER_API_KEY', process.env.OPENROUTER_API_KEY],
+    ['OPENROUTER_KEY', process.env.OPENROUTER_KEY],
+    ['GEMINI_API_KEY', process.env.GEMINI_API_KEY],
+  ] as const
+
+  return candidates.find(([, value]) => value?.trim())
+}
+
 export async function POST(req: NextRequest) {
-  const apiKey = process.env.OPENROUTER_API_KEY ?? process.env.GEMINI_API_KEY
+  const keyEntry = getOpenRouterKey()
+  const apiKey = keyEntry?.[1]?.trim()
 
   if (!apiKey) {
-    console.error('[/api/chat] No API key found. Set OPENROUTER_API_KEY in .env.local')
-    return new Response("Sorry, I'm having trouble connecting. Please try again later.", {
-      status: 200,
+    console.error('[/api/chat] No API key found. Set OPENROUTER_API_KEY in Vercel environment variables.')
+    return new Response(CONNECT_ERROR, {
+      status: 503,
       headers: { 'Content-Type': 'text/plain; charset=utf-8' },
     })
   }
@@ -34,15 +51,24 @@ export async function POST(req: NextRequest) {
 
     const chatMessages = [
       { role: 'system', content: systemPrompt },
-      ...messages.map((m: { role: string; content: string }) => ({
-        role: m.role,
-        content: m.content,
-      })),
+      ...messages
+        .filter((m: { role: string; content: string }) =>
+          ['user', 'assistant'].includes(m.role) &&
+          m.content?.trim() &&
+          !KNOWN_FAILURE_MESSAGES.has(m.content.trim())
+        )
+        .map((m: { role: string; content: string }) => ({
+          role: m.role,
+          content: m.content,
+        })),
     ]
 
-    // Try each model in order, falling back on 429
+    console.log(`[/api/chat] Using API key from ${keyEntry?.[0] ?? 'unknown env var'}`)
+
     let response: Response | null = null
     let usedModel = ''
+    let lastError = ''
+
     for (const model of MODELS) {
       console.log(`[/api/chat] Trying: ${model}`)
       const res = await fetch('https://openrouter.ai/api/v1/chat/completions', {
@@ -64,10 +90,13 @@ export async function POST(req: NextRequest) {
 
       const errText = await res.text()
       console.warn(`[/api/chat] ${model} → HTTP ${res.status}:`, errText.slice(0, 200))
-      if (res.status !== 429) throw new Error(`OpenRouter ${res.status}: ${errText}`)
+      lastError = `OpenRouter ${res.status}: ${errText}`
+      if (res.status === 401 || res.status === 403) {
+        throw new Error(lastError)
+      }
     }
 
-    if (!response) throw new Error('All models rate-limited. Try again shortly.')
+    if (!response) throw new Error(lastError || 'All models failed. Try again shortly.')
 
     console.log(`[/api/chat] Streaming with: ${usedModel}`)
 
@@ -112,8 +141,8 @@ export async function POST(req: NextRequest) {
     console.error('[/api/chat] Error:', message)
 
     return new Response(
-      "Sorry, I'm having trouble connecting. Please try again later.",
-      { status: 200, headers: { 'Content-Type': 'text/plain; charset=utf-8' } }
+      CONNECT_ERROR,
+      { status: 503, headers: { 'Content-Type': 'text/plain; charset=utf-8' } }
     )
   }
 }
