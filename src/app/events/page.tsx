@@ -8,16 +8,6 @@ import SiteFooter from '../components/SiteFooter';
 
 const slides = [
   {
-    title: 'Tomay Poreche Mone',
-    subtitle: "Kolkata's Most Awaited Evening of Retro Bollywood Magic",
-    date: 'Every 4th August',
-    location: 'Kolkata',
-    tag: 'Flagship',
-    image: '/artists/perf-7.jpg',
-    objectPosition: 'center 30%',
-    artists: ['Amit Kumar', 'Kumar Sanu', 'Kavita Krishnamurthy', 'Bappi Lahiri'],
-  },
-  {
     title: 'Legacy — Unforgettable Rafi',
     subtitle: 'A Grand Tribute to the Voice of a Million Hearts',
     date: '1 Aug 2026',
@@ -60,15 +50,6 @@ const upcoming = [
     artists: ['Sudesh Bhosle', 'Roop Kumar Rathod', 'Anup Jalota'],
   },
   {
-    title: 'Tomay Poreche Mone',
-    subtitle: "Seventh Season of Kolkata's Retro Bollywood Night",
-    date: '4 Aug 2026',
-    location: 'Kolkata',
-    tag: 'Flagship',
-    image: '/shows/tomay-poreche-mone.jpg',
-    artists: ['Amit Kumar', 'Kumar Sanu', 'Kavita Krishnamurthy'],
-  },
-  {
     title: 'Tribute to Legends',
     subtitle: 'Celebrating Hemant Kumar, Lata Mangeshkar & Mukesh',
     date: '2 Aug 2026',
@@ -91,7 +72,7 @@ const upcoming = [
 const past = [
   {
     title: 'Main Hoon Jhumroo',
-    subtitle: 'Tomay Poreche Mone — Live Performance',
+    subtitle: 'Kishore Kumar Tribute — Live Performance',
     date: '18 Dec 2024',
     location: 'Kolkata',
     image: 'https://i.ytimg.com/vi/3b-nm-hj92Y/hqdefault.jpg',
@@ -107,7 +88,7 @@ const past = [
   },
   {
     title: 'Om Shanti Om',
-    subtitle: 'Tomay Poreche Mone — Live Performance',
+    subtitle: 'Kishore Kumar Tribute — Live Performance',
     date: '24 Aug 2024',
     location: 'Kolkata',
     image: 'https://i.ytimg.com/vi/AHjD0AFYjhs/hqdefault.jpg',
@@ -123,7 +104,7 @@ const past = [
   },
   {
     title: 'Manzilen Apni Jagah Hain',
-    subtitle: 'Tomay Poreche Mone — Live Performance',
+    subtitle: 'Kishore Kumar Tribute — Live Performance',
     date: '10 Jul 2024',
     location: 'Kolkata',
     image: 'https://i.ytimg.com/vi/DY_n3K2tm-M/hqdefault.jpg',

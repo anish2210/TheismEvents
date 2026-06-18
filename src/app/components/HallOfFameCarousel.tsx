@@ -25,13 +25,6 @@ const events = [
     href: null,
   },
   {
-    title: "Tomay Poreche Mone",
-    date: "4 Aug 2024",
-    location: "Kolkata",
-    image: "https://i.ytimg.com/vi/3b-nm-hj92Y/hqdefault.jpg",
-    href: "https://www.youtube.com/watch?v=3b-nm-hj92Y",
-  },
-  {
     title: "Shotoborshe Uttom",
     date: "6 Sep 2026",
     location: "Kolkata",

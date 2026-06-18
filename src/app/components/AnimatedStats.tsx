@@ -11,7 +11,7 @@ interface Stat {
 const stats: Stat[] = [
   { numeric: 10,  suffix: "+",  label: "Years of Excellence" },
   { numeric: 119, suffix: "K+", label: "Followers on Facebook" },
-  { numeric: 7,   suffix: "+",  label: "Seasons of Tomay Poreche Mone" },
+  { numeric: 7,   suffix: "+",  label: "Kishore Kumar Tribute Seasons" },
   { numeric: 2,   suffix: "",   label: "Iconic IPs Owned by Theism" },
 ];
 

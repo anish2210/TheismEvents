@@ -17,45 +17,38 @@ function ytThumb(id: string) {
 const FALLBACK_VIDEOS: YouTubeVideo[] = [
   {
     id: "3b-nm-hj92Y",
-    title: "Main Hoon Jhumroo | Kishore Kumar | Amit Kumar | Sumeet Kumar | Theism Events | Tomay Poreche Mone",
+    title: "Main Hoon Jhumroo | Kishore Kumar | Amit Kumar | Sumeet Kumar | Theism Events",
     thumbnail: ytThumb("3b-nm-hj92Y"),
     publishedAt: "2024-12-18T00:00:00Z",
     url: "https://www.youtube.com/watch?v=3b-nm-hj92Y",
   },
   {
     id: "AHjD0AFYjhs",
-    title: "Om Shanti Om | Kishore Kumar | Amit Kumar | Sumeet Kumar | Theism Events | Tomay Poreche Mone",
+    title: "Om Shanti Om | Kishore Kumar | Amit Kumar | Sumeet Kumar | Theism Events",
     thumbnail: ytThumb("AHjD0AFYjhs"),
     publishedAt: "2024-08-24T00:00:00Z",
     url: "https://www.youtube.com/watch?v=AHjD0AFYjhs",
   },
   {
     id: "a0xirI0jBN4",
-    title: "Hum The Woh Thi | Kishore Kumar | Amit Kumar | Sumeet Kumar | Theism Events | Tomay Poreche Mone",
+    title: "Hum The Woh Thi | Kishore Kumar | Amit Kumar | Sumeet Kumar | Theism Events",
     thumbnail: ytThumb("a0xirI0jBN4"),
     publishedAt: "2024-08-03T00:00:00Z",
     url: "https://www.youtube.com/watch?v=a0xirI0jBN4",
   },
   {
     id: "DY_n3K2tm-M",
-    title: "Manzilen Apni Jagah Hain | Kishore Kumar | Amit Ganguly | Theism Events | Tomay Poreche Mone",
+    title: "Manzilen Apni Jagah Hain | Kishore Kumar | Amit Ganguly | Theism Events",
     thumbnail: ytThumb("DY_n3K2tm-M"),
     publishedAt: "2024-07-10T00:00:00Z",
     url: "https://www.youtube.com/watch?v=DY_n3K2tm-M",
   },
   {
     id: "6i_Q2Z09Mcw",
-    title: "Humein Tumse Pyar Kitna | Kishore Kumar | Usha Uthup | Theism Events | Tomay Poreche Mone",
+    title: "Humein Tumse Pyar Kitna | Kishore Kumar | Usha Uthup | Theism Events",
     thumbnail: ytThumb("6i_Q2Z09Mcw"),
     publishedAt: "2024-08-04T00:00:00Z",
     url: "https://www.youtube.com/watch?v=6i_Q2Z09Mcw",
-  },
-  {
-    id: "04HeJS9mDpo",
-    title: "Tomay Poreche Mone | Theism Events",
-    thumbnail: ytThumb("04HeJS9mDpo"),
-    publishedAt: "2019-08-04T00:00:00Z",
-    url: "https://www.youtube.com/watch?v=04HeJS9mDpo",
   },
 ];
 

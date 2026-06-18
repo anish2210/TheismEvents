@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 const navLinks = ['Home', 'Shows', 'Services', 'Gallery', 'Testimonials', 'About', 'Contact'];
-const productions = ['Tomay Poreche Mone', 'Aaye Tum Yaad Mujhe', 'Tribute to Legends', 'Chete Pute', 'A Tribute to R.D. Burman'];
+const productions = ['Aaye Tum Yaad Mujhe', 'Tribute to Legends', 'Chete Pute', 'A Tribute to R.D. Burman'];
 
 const socials = [
   {

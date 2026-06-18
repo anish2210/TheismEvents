@@ -178,7 +178,7 @@ export default function ChatWidget() {
                 </p>
               </div>
               <div className="flex flex-col gap-2 w-full mt-1">
-                {['Upcoming events?', 'Tell me about Tomay Poreche Mone', 'How can I book?'].map(q => (
+                {['Upcoming events?', 'Tell me about Aaye Tum Yaad Mujhe', 'How can I book?'].map(q => (
                   <button
                     key={q}
                     onClick={() => sendMessage(q)}

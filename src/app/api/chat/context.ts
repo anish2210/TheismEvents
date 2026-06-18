@@ -25,7 +25,7 @@ India's premier live experience company. Headquartered with offices in Kolkata a
 ### Key Stats
 - 10+ Years of Excellence
 - 119K+ Followers on Facebook
-- 7+ Seasons of Tomay Poreche Mone
+- 7+ Kishore Kumar Tribute Seasons
 - 2 Iconic IPs Owned by Theism
 
 ### Services Offered
@@ -53,22 +53,14 @@ India's premier live experience company. Headquartered with offices in Kolkata a
 5. National Reach, Local Sensitivity — Two offices, pan-India execution, deep understanding of regional culture and sensibility.
 
 ### Signature Shows (Flagship IPs)
-1. Tomay Poreche Mone
-   - Type: Flagship | Tag: Flagship
-   - Location: Kolkata
-   - Date: Every 4th August (Kishore Kumar's birth anniversary)
-   - Season: Now in its 7th season
-   - Description: Kolkata's iconic retro Bollywood concert, an unmissable institution graced by India's greatest voices.
-   - Artists: Amit Kumar, Kumar Sanu, Kavita Krishnamurthy, Bappi Lahiri, Abhijeet Bhattacharya
-
-2. Aaye Tum Yaad Mujhe
+1. Aaye Tum Yaad Mujhe
    - Type: Mumbai Edition
    - Location: Mumbai
    - Date: Annual
    - Description: Mumbai's grandest tribute to the genius of Kishore Kumar. Grand musical tribute with philharmonic orchestration.
    - Artists: Amit Kumar, Sudesh Bhosle, Alok Katdare, Bela Sulakhe
 
-3. Tribute to Legends
+2. Tribute to Legends
    - Type: New Series
    - Location: Pan India
    - Date: New Series (ongoing)
@@ -81,12 +73,7 @@ India's premier live experience company. Headquartered with offices in Kolkata a
    - Subtitle: A Grand Tribute to the Voice of a Million Hearts
    - Artists: Sudesh Bhosle, Roop Kumar Rathod, Anup Jalota
 
-2. Tomay Poreche Mone (7th Season)
-   - Date: 4 Aug 2026 | Location: Kolkata | Tag: Flagship
-   - Subtitle: Seventh Season of Kolkata's Retro Bollywood Night
-   - Artists: Amit Kumar, Kumar Sanu, Kavita Krishnamurthy
-
-3. Tribute to Legends
+2. Tribute to Legends
    - Date: 2 Aug 2026 | Location: Mumbai | Tag: New Series
    - Subtitle: Celebrating Hemant Kumar, Lata Mangeshkar & Mukesh
    - Artists: Sagnik Sen, Shurjo Bhattacharya, Gul Saxena
@@ -97,11 +84,11 @@ India's premier live experience company. Headquartered with offices in Kolkata a
    - Artists: Indrani Sen, Usha Uthup, Lopamudra Mitra
 
 ### Past Events (Archive)
-1. Main Hoon Jhumroo — Tomay Poreche Mone Live Performance | 18 Dec 2024 | Kolkata | https://www.youtube.com/watch?v=3b-nm-hj92Y
+1. Main Hoon Jhumroo — Kishore Kumar Live Performance | 18 Dec 2024 | Kolkata | https://www.youtube.com/watch?v=3b-nm-hj92Y
 2. Humein Tumse Pyar Kitna — Kishore Kumar Tribute Live at Kolkata | 4 Aug 2024 | Kolkata | https://www.youtube.com/watch?v=6i_Q2Z09Mcw
-3. Om Shanti Om — Tomay Poreche Mone Live Performance | 24 Aug 2024 | Kolkata | https://www.youtube.com/watch?v=AHjD0AFYjhs
+3. Om Shanti Om — Kishore Kumar Live Performance | 24 Aug 2024 | Kolkata | https://www.youtube.com/watch?v=AHjD0AFYjhs
 4. Aaye Tum Yaad Mujhe — Mumbai's Grandest Kishore Kumar Tribute | Annual | Mumbai
-5. Manzilen Apni Jagah Hain — Tomay Poreche Mone Live Performance | 10 Jul 2024 | Kolkata | https://www.youtube.com/watch?v=DY_n3K2tm-M
+5. Manzilen Apni Jagah Hain — Kishore Kumar Live Performance | 10 Jul 2024 | Kolkata | https://www.youtube.com/watch?v=DY_n3K2tm-M
 
 ### Social Media
 - Facebook: https://www.facebook.com/TheismEvents/ (119K+ followers)
@@ -169,7 +156,7 @@ async function buildYouTubeContext(): Promise<string> {
       '- "Hum The Woh Thi | Kishore Kumar | Amit Kumar | Theism Events" | 2024-08-03 | https://www.youtube.com/watch?v=a0xirI0jBN4',
       '- "Manzilen Apni Jagah Hain | Kishore Kumar | Theism Events" | 2024-07-10 | https://www.youtube.com/watch?v=DY_n3K2tm-M',
       '- "Humein Tumse Pyar Kitna | Kishore Kumar | Usha Uthup | Theism Events" | 2024-08-04 | https://www.youtube.com/watch?v=6i_Q2Z09Mcw',
-      '- "Tomay Poreche Mone | Theism Events" | 2019-08-04 | https://www.youtube.com/watch?v=04HeJS9mDpo',
+      '- "Hum The Woh Thi | Kishore Kumar | Amit Kumar | Theism Events" | 2024-08-03 | https://www.youtube.com/watch?v=a0xirI0jBN4',
     ]
   }
 

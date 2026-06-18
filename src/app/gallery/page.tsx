@@ -3,14 +3,6 @@ import SiteFooter from '../components/SiteFooter';
 
 const categories = [
   {
-    label: 'Tomay Poreche Mone',
-    sub: 'Seasons I through VII',
-    count: '7 Seasons',
-    desc: "Seven consecutive years of Kolkata's most beloved retro Bollywood concert — captured frame by frame.",
-    accent: 'from-red-950 via-zinc-900 to-black',
-    span: 'md:col-span-2',
-  },
-  {
     label: 'Aaye Tum Yaad Mujhe',
     sub: 'Mumbai Seasons I, II & III',
     count: '3 Seasons',
