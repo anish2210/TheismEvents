@@ -107,7 +107,7 @@ export default function Home() {
                     Discover Our Shows
                   </Link>
                 </span>
-                <span className="relative inline-block">
+                {/* <span className="relative inline-block">
                   <span
                     aria-hidden="true"
                     className="absolute inset-0 bg-white pointer-events-none translate-x-[5px] translate-y-[5px]"
@@ -118,7 +118,7 @@ export default function Home() {
                   >
                     Plan Your Event With Us
                   </Link>
-                </span>
+                </span> */}
               </div>
 
               {/* Social follow strip */}
