@@ -15,6 +15,8 @@ const interests = [
 
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
   const [form, setForm] = useState({
     name: '',
     email: '',
@@ -27,9 +29,23 @@ export default function ContactForm() {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+    setError('');
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) throw new Error('Failed to send.');
+      setSubmitted(true);
+    } catch {
+      setError('Something went wrong. Please try again or email us directly at info@theismevents.in.');
+    } finally {
+      setLoading(false);
+    }
   }
 
   if (submitted) {
@@ -120,14 +136,19 @@ export default function ContactForm() {
         />
       </div>
 
+      {error && (
+        <p className="text-red-400 text-xs leading-relaxed">{error}</p>
+      )}
+
       <div className="pt-2">
         <span className="relative inline-block">
           <span aria-hidden="true" className="absolute inset-0 bg-white pointer-events-none translate-x-[5px] translate-y-[5px]" />
           <button
             type="submit"
-            className="relative block bg-red-700 hover:bg-red-800 text-white px-10 py-4 text-xs font-bold uppercase tracking-widest transition-colors cursor-pointer"
+            disabled={loading}
+            className="relative block bg-red-700 hover:bg-red-800 disabled:opacity-60 text-white px-10 py-4 text-xs font-bold uppercase tracking-widest transition-colors cursor-pointer disabled:cursor-not-allowed"
           >
-            Send Your Enquiry
+            {loading ? 'Sending…' : 'Send Your Enquiry'}
           </button>
         </span>
       </div>
