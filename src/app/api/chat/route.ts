@@ -9,11 +9,49 @@ Only suggest https://theismevents.in/contact for enquiries that require a human 
 Never make up event dates, prices, or details you're not sure about.
 Use the context block below — which includes website data (shows, upcoming events, past events, services, contact info, stats) as well as live YouTube and Facebook content — to answer questions accurately.`
 
-const MODELS = [
-  'nex-agi/nex-n2-pro:free',
-  'meta-llama/llama-3.1-8b-instruct:free',
-  'mistralai/mistral-7b-instruct:free',
+// Fallback list used only if the OpenRouter models API call fails
+const FALLBACK_MODELS = [
+  'meta-llama/llama-3.2-3b-instruct:free',
+  'deepseek/deepseek-r1:free',
+  'google/gemma-3-4b-it:free',
+  'mistralai/mistral-small-3.1-24b-instruct:free',
 ]
+
+let cachedFreeModels: string[] | null = null
+let cacheTime = 0
+const CACHE_TTL = 60 * 60 * 1000 // 1 hour
+
+async function getFreeModels(apiKey: string): Promise<string[]> {
+  if (cachedFreeModels && Date.now() - cacheTime < CACHE_TTL) {
+    return cachedFreeModels
+  }
+
+  try {
+    const res = await fetch('https://openrouter.ai/api/v1/models', {
+      headers: { Authorization: `Bearer ${apiKey}` },
+    })
+
+    if (!res.ok) throw new Error(`Models API returned ${res.status}`)
+
+    const data = await res.json()
+    const freeModels: string[] = (data.data ?? [])
+      .filter((m: { id: string; pricing?: { prompt?: string | number; completion?: string | number } }) =>
+        String(m.pricing?.prompt) === '0' && String(m.pricing?.completion) === '0'
+      )
+      .map((m: { id: string }) => m.id)
+
+    if (freeModels.length > 0) {
+      cachedFreeModels = freeModels
+      cacheTime = Date.now()
+      console.log(`[/api/chat] Discovered ${freeModels.length} free models from OpenRouter`)
+      return freeModels
+    }
+  } catch (err) {
+    console.warn('[/api/chat] Could not fetch model list from OpenRouter:', err instanceof Error ? err.message : err)
+  }
+
+  return FALLBACK_MODELS
+}
 
 const CONNECT_ERROR = "Sorry, I'm having trouble connecting. Please try again later."
 const KNOWN_FAILURE_MESSAGES = new Set([
@@ -46,7 +84,10 @@ export async function POST(req: NextRequest) {
   try {
     const { messages } = await req.json()
 
-    const context = await getEventContext()
+    const [context, models] = await Promise.all([
+      getEventContext(),
+      getFreeModels(apiKey),
+    ])
     const systemPrompt = `${BASE_SYSTEM_PROMPT}\n\n${context}`
 
     const chatMessages = [
@@ -69,7 +110,7 @@ export async function POST(req: NextRequest) {
     let usedModel = ''
     let lastError = ''
 
-    for (const model of MODELS) {
+    for (const model of models) {
       console.log(`[/api/chat] Trying: ${model}`)
       const res = await fetch('https://openrouter.ai/api/v1/chat/completions', {
         method: 'POST',
